@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Email Validation</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form action="/process" method="POST" class="text=dark">
+            <!-- IF YOU WANT TO CHANGE THE WIDTH [FOR ALERT] ADD STYLE, WIDTH AT 50% -->
+            <div class="bg-dark text-danger" style="width: 50%;">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <h2>Oops! Please try again.</h2>
+                        {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <!-- IF YOU WANT TO CHANGE THE WIDTH OF THE [TEXT INPUT] ADD STYLE, WIDTH AT 50% -->
+            <div class="form-group mb-2" style="width: 50%;">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="form-control">
+            </div>
+            <input type="submit" value="Add Email" class="btn btn-primary">
+        </form>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
